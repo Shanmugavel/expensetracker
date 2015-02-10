@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.shanmugavel.pocs</groupId>
+  <artifactId>expensetracker</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>expensetracker Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+  <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Spring Data -->
+    <dependency>
+    	<groupId>org.springframework.data</groupId>
+    	<artifactId>spring-data-mongodb</artifactId>
+    	<version>1.6.2.RELEASE</version>
+    	<exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <!-- Log4J -->
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>1.7.10</version>
+    </dependency>
+    <!-- EasyMock with PowerMock -->
+    <dependency>
+    	<groupId>org.powermock</groupId>
+    	<artifactId>powermock-module-junit4</artifactId>
+    	<version>1.6.1</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.powermock</groupId>
+    	<artifactId>powermock-api-easymock</artifactId>
+    	<version>1.6.1</version>
+    </dependency>
+    <!-- RestEasy -->
+    <dependency>
+    	<groupId>org.jboss.resteasy</groupId>
+    	<artifactId>resteasy-jaxrs</artifactId>
+    	<version>3.0.10.Final</version>
+    </dependency>
+    <!-- RestEasy Dependencies -->
+    <dependency>
+    	<groupId>net.jcip</groupId>
+    	<artifactId>jcip-annotations</artifactId>
+    	<version>1.0</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>expensetracker</finalName>
+  </build>
+  <properties>
+  	<maven.compiler.target>1.7</maven.compiler.target>
+  	<maven.compiler.source>1.7</maven.compiler.source>
+  </properties>
+</project>
