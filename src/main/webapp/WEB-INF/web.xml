@@ -15,7 +15,7 @@
    </listener>
 
    <listener>
-      <listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
+      <listener-class>com.shanmugavel.pocs.expensetracker.common.ExpenseTrackerContextLoaderListener</listener-class>
    </listener>
 
    <servlet>
