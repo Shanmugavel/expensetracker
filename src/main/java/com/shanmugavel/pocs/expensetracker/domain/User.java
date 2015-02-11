@@ -25,6 +25,7 @@ public class User {
 	private String emailAddress;
 	private List<Phone> phones;
 	private Status status;
+	private List<Expense> expenses;
 	
 	public BigInteger getId() {
 		return id;
@@ -74,13 +75,19 @@ public class User {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	
+	public List<Expense> getExpenses() {
+		return expenses;
+	}
+	public void setExpenses(List<Expense> expenses) {
+		this.expenses = expenses;
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", middleName=" + middleName + ", emailAddress="
 				+ emailAddress + ", phones=" + phones + ", status=" + status
-				+ "]";
-	}	
+				+ ", expenses=" + expenses + "]";
+	}
+	
 }
 
