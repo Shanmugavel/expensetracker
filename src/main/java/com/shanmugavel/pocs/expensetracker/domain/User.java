@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
 	@Id
-	private BigInteger id;
+	private String id;
 	private String firstName;
 	private String lastName;
 	private String middleName;
@@ -27,10 +27,10 @@ public class User {
 	private Status status;
 	private List<Expense> expenses;
 	
-	public BigInteger getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(BigInteger id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getFirstName() {
