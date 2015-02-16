@@ -33,7 +33,7 @@ import com.shanmugavel.pocs.expensetracker.domain.User;
  */
 @Component
 @Path("/user")
-public class UserManagement {
+public class UserManagement implements IUserManagement{
 
 	@Context
 	UriInfo uriInfo;
