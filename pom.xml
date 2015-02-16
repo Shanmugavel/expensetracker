@@ -110,13 +110,17 @@
 		<artifactId>easymock</artifactId>
 		<version>3.3.1</version>
 	</dependency>
+	<dependency>
+		<groupId>de.flapdoodle.embed</groupId>
+		<artifactId>de.flapdoodle.embed.mongo</artifactId>
+		<version>1.46.4</version>
+	</dependency>
     <dependency>
 		<groupId>org.glassfish.main.extras</groupId>
 		<artifactId>glassfish-embedded-all</artifactId>
 		<version>4.1</version>
 		<scope>test</scope>
 	</dependency>
-
 	<dependency>
 	    <groupId>javax</groupId>
 	    <artifactId>javaee-api</artifactId>
@@ -152,6 +156,7 @@
           </execution>
         </executions>
       </plugin>
+ 
       <!--<plugin>
 	    <groupId>org.apache.maven.plugins</groupId>
 	    <artifactId>maven-checkstyle-plugin</artifactId>
@@ -182,7 +187,6 @@
 			<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
 		</configuration>
 	</plugin>
- 
 	<plugin>
 		<groupId>org.codehaus.mojo</groupId>
 		<artifactId>cobertura-maven-plugin</artifactId>
@@ -208,4 +212,5 @@
      </plugin>
    </plugins>
   </reporting>
+ 
 </project>

@@ -15,7 +15,7 @@ http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan
-		base-package="com.shanmugavel.pocs.expensetracker.rs" />
+		base-package="com.shanmugavel.pocs.expensetracker.rs, com.shanmugavel.pocs.expensetracker.rs.dao" />
 	<context:annotation-config />
 	
 	
@@ -28,6 +28,5 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	</bean>
 	-->
 	<bean class="com.shanmugavel.pocs.expensetracker.dao.MockUserDAOFactoryBean" id="userDAO" />
-	<bean class="com.shanmugavel.pocs.expensetracker.MockUriInfoFactoryBean" id="uriInfo" />
-
+	
 </beans>

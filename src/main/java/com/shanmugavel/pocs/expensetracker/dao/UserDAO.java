@@ -3,6 +3,8 @@
  */
 package com.shanmugavel.pocs.expensetracker.dao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -19,6 +21,8 @@ import com.shanmugavel.pocs.expensetracker.domain.User;
 @Repository
 public class UserDAO implements IUserDAO {
 
+	Logger LOGGER = LoggerFactory.getLogger(UserDAO.class);
+	
 	@Autowired
 	private MongoOperations mongoOprs;
 	
