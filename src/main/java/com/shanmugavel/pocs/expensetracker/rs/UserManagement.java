@@ -4,6 +4,7 @@
 package com.shanmugavel.pocs.expensetracker.rs;
 
 import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -18,6 +19,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.http.client.utils.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,6 @@ import com.shanmugavel.pocs.expensetracker.domain.User;
 @Component
 @Path("/user")
 public class UserManagement implements IUserManagement{
-
 	@Context
 	private UriInfo uriInfo;
 	
@@ -49,6 +50,7 @@ public class UserManagement implements IUserManagement{
 	public User getUser(@PathParam("id") String id) {
 		LOGGER.debug("id..." + id);
 		User user = userDAO.findById(id);
+		LOGGER.debug("User::", user);
 		return user;
 	}
 	
@@ -64,8 +66,12 @@ public class UserManagement implements IUserManagement{
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response createUser(User user){
 		String id = userDAO.create(user);
-		URI uri = URI.create(uriInfo.getAbsolutePath() + "/" + id);
-		//URI uri = null;
+		URI uri = null;
+		if (null == uriInfo) {
+			uri = URI.create("http://localhost/user/" + id);
+		} else {
+			uri = URI.create(uriInfo.getAbsolutePath() + "/" + id);
+		}
 		return Response.created(uri).build();
 	}
 	
@@ -77,4 +83,5 @@ public class UserManagement implements IUserManagement{
 		userDAO.update(user);
 		return Response.ok().build();
 	}
+
 }

@@ -81,6 +81,12 @@ public class User {
 	public void setExpenses(List<Expense> expenses) {
 		this.expenses = expenses;
 	}
+	public void addExpense(Expense expense) {
+		if (null == expenses) {
+			expenses = new ArrayList<Expense>();
+		}
+		expenses.add(expense);
+	}
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="

@@ -36,10 +36,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext-test.xml")
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
 public class UserManagementTest {
 
 	Logger LOGGER = LoggerFactory.getLogger(UserManagementTest.class);
@@ -68,10 +72,9 @@ public class UserManagementTest {
     	applicationContext.addBeanFactoryPostProcessor(processor);
     	
     	SpringResourceFactory noDefaults = new SpringResourceFactory("userManagement", applicationContext, UserManagement.class);
-    	noDefaults.setContext("/test");
+    	//noDefaults.setContext("/test");
     	dispatcher.getRegistry().addResourceFactory(noDefaults);
     	
-    	applicationContext.getBean(IUserManagement.class);
     	
     	//client
     	client = new DefaultHttpClient();
@@ -161,7 +164,7 @@ public class UserManagementTest {
 			}
 		});
         
-        postMethod.setEntity(new StringEntity("{\"id\":null,\"firstName\": \"Shan\",\"lastName\":null,\"middleName\":null,\"emailAddress\":null,\"phones\":null,\"status\":null,\"expenses\":null}"));
+        postMethod.setEntity(new StringEntity("{\"id\":null,\"firstName\":\"Aarthi\",\"lastName\":\"Gnanasekar\",\"middleName\":null,\"emailAddress\":\"aarthig21@gmail.com\",\"phones\":[{\"type\":\"HOME\",\"number\":\"801 317 1882\",\"defaultPhone\":true}],\"status\":\"ACTIVE\",\"expenses\":[{\"dt\":1424110056447,\"tags\":[\"Restaurant\"],\"amount\":12.45,\"currency\":\"USD\",\"desc\":\"Dinner...\"}]}"));
         response = client.execute(postMethod);
         
         // CONVERT RESPONSE TO STRING
