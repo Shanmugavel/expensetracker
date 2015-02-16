@@ -36,7 +36,7 @@ import com.shanmugavel.pocs.expensetracker.domain.User;
 public class UserManagement implements IUserManagement{
 
 	@Context
-	UriInfo uriInfo;
+	private UriInfo uriInfo;
 	
 	Logger LOGGER = LoggerFactory.getLogger(UserManagement.class);
 	
@@ -65,6 +65,7 @@ public class UserManagement implements IUserManagement{
 	public Response createUser(User user){
 		String id = userDAO.create(user);
 		URI uri = URI.create(uriInfo.getAbsolutePath() + "/" + id);
+		//URI uri = null;
 		return Response.created(uri).build();
 	}
 	

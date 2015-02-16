@@ -3,8 +3,6 @@
  */
 package com.shanmugavel.pocs.expensetracker.dao;
 
-import java.math.BigInteger;
-
 import com.shanmugavel.pocs.expensetracker.domain.User;
 
 /**
